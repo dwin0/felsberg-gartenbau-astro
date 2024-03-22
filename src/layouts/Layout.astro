@@ -1,51 +1,95 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Homepage der Gartenbau Felsberg GmbH in Neuwilen"
+    />
+    <meta
+      name="keywords"
+      content="Gartenbau Felsberg GmbH, Neuanlagen, Gartenumgestaltung, Grabpflege, Kreuzlingen, Neuwilen"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="canonical" content="https://www.felsberg-gartenbau.ch/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/gartenbau">Gartenbau</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  :root {
+    --color-green: "#245d24";
+
+    @custom-media --breakpoint-max-sm (max-width: 350px);
+    @custom-media --breakpoint-min-md (min-width: 351px);
+    @custom-media --breakpoint-max-md (max-width: 700px);
+    @custom-media --breakpoint-min-lg (min-width: 1200px);
+  }
+
+  html {
+    font-family: Tahoma, sans-serif;
+  }
+
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 1em;
+
+    @media (--breakpoint-min-sm) {
+      font-size: 2.25rem;
+    }
+
+    @media (--breakpoint-min-md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  p,
+  ul {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1em;
+
+    @media (--breakpoint-min-md) {
+      font-size: 1.25rem;
+    }
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
 </style>

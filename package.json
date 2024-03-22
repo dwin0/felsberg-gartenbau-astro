@@ -10,8 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.5.8",
     "@astrojs/check": "^0.5.9",
+    "astro": "^4.5.8",
     "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss-custom-media": "^10.0.4"
   }
 }
