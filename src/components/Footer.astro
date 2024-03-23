@@ -5,9 +5,11 @@ import { googleMapsLink, phoneNumber, email } from "../data/contact";
 <footer>
   <a href={googleMapsLink} target="_blank" rel="noopener">
     <address>
-      <span class="address-item">Gartenbau Felsberg GmbH</span>
-      <span class="address-item">Greestrasse 26</span>
-      <span class="address-item">8566 Neuwilen</span>
+      <span>Gartenbau Felsberg GmbH</span>
+      <span class="address-separator" aria-hidden="true">|</span>
+      <span>Greestrasse 26</span>
+      <span class="address-separator" aria-hidden="true">|</span>
+      <span>8566 Neuwilen</span>
     </address>
   </a>
   <a href={`tel:${phoneNumber}`}>Telefon: {phoneNumber}</a>
@@ -36,9 +38,11 @@ import { googleMapsLink, phoneNumber, email } from "../data/contact";
     }
   }
 
-  .address-item:not(:first-child)::before {
+  .address-separator {
+    display: none;
+
     @media (--breakpoint-min-md) {
-      content: "|";
+      display: inline;
       padding-inline: var(--spacing-05);
     }
   }
