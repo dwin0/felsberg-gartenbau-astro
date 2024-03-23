@@ -12,5 +12,3 @@ export const mobileNumberIntl = `+41${mobileNumber
   .substring(1)
   .replaceAll(" ", "")}`;
 export const email = "info@felsberg-gartenbau.ch";
-
-var x = 1;
