@@ -1,0 +1,30 @@
+---
+import { Picture } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+}
+
+const { image, alt } = Astro.props;
+---
+
+<Picture
+  src={image}
+  alt={alt}
+  sizes="100vw"
+  height={580}
+  widths={[750, 1080, 1366, 1920]}
+  loading="eager"
+/>
+
+<style>
+  img {
+    min-height: 300px;
+    max-height: 580px;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 80%;
+  }
+</style>
