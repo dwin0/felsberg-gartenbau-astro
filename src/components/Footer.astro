@@ -7,6 +7,7 @@ import {
   googleMapsLink,
   phoneNumber,
   email,
+  phoneNumberIntl,
 } from "../data/contact";
 ---
 
@@ -20,7 +21,7 @@ import {
       <span>{zipCode} {city}</span>
     </address>
   </a>
-  <a href={`tel:${phoneNumber}`}>Telefon: {phoneNumber}</a>
+  <a href={`tel:${phoneNumberIntl}`}>Telefon: {phoneNumber}</a>
   <a href={`mailto:${email}`}>Email: {email}</a>
   <a href="/datenschutz">Datenschutz</a>
 </footer>
