@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderImage from "../components/HeaderImage.astro";
+import imgSrc from "../images/staudenrabatte-min.jpg";
+---
+
+<Layout title="Gartenunterhalt - Gartenbau Felsberg GmbH">
+  <HeaderImage
+    image={imgSrc}
+    alt="Garten mit Staudenrabatte"
+    objectPosition="50% 78%"
+  />
+  <main>
+    <h1>Gartenunterhalt</h1>
+    <p>
+      Wir pflegen und unterhalten Ihren Garten fachmännisch, sodass Sie das
+      ganze Jahr Freude an ihm haben. Damit Sie Ihren Garten geniessen können,
+      bieten wir Rundumbetreuung oder eine regelmässige Pflege an. Gerne gehen
+      wir auf Ihre Wünsche ein.
+    </p>
+    <p>Folgende Arbeiten erledigen wir für Sie:</p>
+    <ul>
+      <li>Rasenpflege</li>
+      <li>Rabattenpflege</li>
+      <li>Bäume und Sträucher schneiden</li>
+      <li>Heckenschnitt</li>
+      <li>Bepflanzungen</li>
+      <li>Schädlingsbekämpfung und Pflanzenschutz</li>
+    </ul>
+  </main>
+</Layout>

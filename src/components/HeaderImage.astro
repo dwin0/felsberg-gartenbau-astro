@@ -4,9 +4,10 @@ import { Picture } from "astro:assets";
 interface Props {
   image: ImageMetadata;
   alt: string;
+  objectPosition?: `${number}% ${number}%`;
 }
 
-const { image, alt } = Astro.props;
+const { image, alt, objectPosition = "50% 50%" } = Astro.props;
 ---
 
 <Picture
@@ -16,6 +17,7 @@ const { image, alt } = Astro.props;
   height={580}
   widths={[750, 1080, 1366, 1920]}
   loading="eager"
+  style={`--header-image-object-position: ${objectPosition}`}
 />
 
 <style>
@@ -25,6 +27,6 @@ const { image, alt } = Astro.props;
     height: auto;
     width: 100%;
     object-fit: cover;
-    object-position: 50% 80%;
+    object-position: var(--header-image-object-position);
   }
 </style>
