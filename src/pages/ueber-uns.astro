@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import HeaderImage from "../components/HeaderImage.astro";
+import jardinSuisseLogo from "../images/jardin-suisse-mitglied.svg";
+import imgSrc from "../images/fahrzeuge-min.jpg";
+---
+
+<Layout title="Über uns">
+  <HeaderImage
+    image={imgSrc}
+    alt="Zwei Lastwagen und ein Anhänger auf denen das Firmenlogo von Gartenbau Felsberg abgedruckt sind"
+    objectPosition="50% 80%"
+  />
+  <main>
+    <h1>Über uns</h1>
+
+    <h2>Firmengeschichte</h2>
+    <p>Unser Betrieb wurde 1982 von Manfred Felsberg gegründet.</p>
+    <p>
+      Nach seiner Pensionierung übernahm ich, Marco Felsberg, den Betrieb 2008
+      und änderte den Namen in Gartenbau Felsberg GmbH. Mit einem geschulten
+      Team und einem professionellen Maschinenpark führen wir sämtliche Arbeiten
+      im Bereich Gartenbau und Gartenpflege aus.
+    </p>
+    <p>
+      Wir empfehlen uns für alle Arbeiten, die rund um den Garten anfallen. Dazu
+      gehören Neuanlagen, Umänderungen, Pflege und Unterhalt. Hauptsächlich
+      führen wir Aufträge von Privatpersonen aus, auch umliegende Gemeinden
+      sowie vereinzelte Gewerbefirmen gehören zu unserer Kundschaft.
+    </p>
+    <p>
+      Die Grabpflege ist ein wichtiges Standbein. In Alterswilen und Tägerwilen
+      pflegen wir zahlreiche Gräber, die wir jedes Jahr bepflanzen und
+      unterhalten.
+    </p>
+    <p>
+      Für unverbindliche Beratungen und Offerten stehen wir Ihnen gerne zur
+      Verfügung.
+    </p>
+    <p>Wir freuen uns auf Ihre <a href="/kontakt">Kontaktaufnahme</a>.</p>
+
+    <h2>Mitgliedschaft</h2>
+    <p>
+      Wir sind Mitglied im <a
+        href="https://www.jardinsuisse.ch/"
+        target="_blank"
+        rel="noopener noreferrer">Unternehmerverband Gärtner Schweiz</a
+      >.
+    </p>
+    <p>
+      <a
+        href="https://www.jardinsuisse.ch/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Image
+          src={jardinSuisseLogo}
+          width={jardinSuisseLogo.width}
+          height={jardinSuisseLogo.height}
+          alt="Jardin Suisse (Unternehmerverband Gärtner Schweiz)"
+          class="logo"
+        />
+      </a>
+    </p>
+  </main>
+</Layout>
+
+<style>
+  .logo {
+    width: 300px;
+    height: auto;
+
+    @media (--breakpoint-min-md) {
+      width: 350px;
+    }
+
+    @media (--breakpoint-min-lg) {
+      width: 400px;
+    }
+  }
+</style>

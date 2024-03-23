@@ -1,12 +1,15 @@
 ---
-import Footer from "../components/Footer.astro";
 import "../styles/reset.css";
+import Footer from "../components/Footer.astro";
+import { name } from "../data/contact";
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
+
+const fullTitle = title ? `${title} - ${name}` : name;
 ---
 
 <!doctype html>
@@ -24,7 +27,7 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="canonical" content="https://www.felsberg-gartenbau.ch/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-    <title>{title}</title>
+    <title>{fullTitle}</title>
   </head>
   <body>
     <header>
@@ -41,6 +44,9 @@ const { title } = Astro.props;
           </li>
           <li>
             <a href="/grabpflege">Grabpflege</a>
+          </li>
+          <li>
+            <a href="/ueber-uns">Über uns</a>
           </li>
         </ul>
       </nav>
@@ -59,6 +65,7 @@ const { title } = Astro.props;
     --spacing-1: 1rem;
     --spacing-2: 2rem;
     --spacing-3: 3rem;
+    --spacing-6: 6rem;
   }
 
   html {
@@ -70,6 +77,10 @@ const { title } = Astro.props;
     padding: var(--spacing-3) var(--spacing-1);
     width: 800px;
     max-width: calc(100% - var(--spacing-2));
+
+    @media (--breakpoint-min-md) {
+      padding-block: var(--spacing-6);
+    }
   }
 
   ::selection {
@@ -92,12 +103,28 @@ const { title } = Astro.props;
     }
   }
 
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-block: 1.5em 1em;
+
+    @media (--breakpoint-min-sm) {
+      font-size: 2rem;
+    }
+
+    @media (--breakpoint-min-md) {
+      font-size: 1.75rem;
+      margin-block-start: 2.5em;
+    }
+  }
+
   p,
   ul,
   li {
     font-size: 1.125rem;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.3;
     margin-block-end: 1em;
 
     @media (--breakpoint-min-md) {
@@ -107,6 +134,11 @@ const { title } = Astro.props;
 
   li {
     margin-block-end: 0.5em;
+  }
+
+  main a {
+    font-weight: bold;
+    color: var(--color-green-main);
   }
 
   footer {
