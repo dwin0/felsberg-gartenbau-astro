@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeaderImage from "../components/HeaderImage.astro";
+import imgSrc from "../images/fahrzeuge-min.jpg";
+
+import {
+  name,
+  street,
+  zipCode,
+  city,
+  googleMapsLink,
+  phoneNumber,
+  email,
+  phoneNumberIntl,
+} from "../data/contact";
+---
+
+<Layout title="Kontakt">
+  <HeaderImage
+    image={imgSrc}
+    alt="Zwei Lastwagen und ein Anhänger auf denen das Firmenlogo von Gartenbau Felsberg abgedruckt sind"
+  />
+  <main>
+    <h1>Kontakt</h1>
+
+    <h2>Adresse</h2>
+
+    <address>
+      <span class="address-wrapper">
+        <span>{name}</span>
+        <span>{street}</span>
+        <span>{zipCode} {city}</span>
+      </span>
+
+      <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
+        Google Maps Link
+      </a>
+    </address>
+
+    <h2>Kontaktmöglichkeiten</h2>
+    <ul>
+      <li class="contact-item">
+        Telefon: <a href={`tel:${phoneNumberIntl}`}>{phoneNumber}</a>
+      </li>
+      <li class="contact-item">
+        Email: <a href={`mailto:${email}`}>{email}</a>
+      </li>
+    </ul>
+
+    <h2>Kontaktformular</h2>
+  </main>
+</Layout>
+
+<style>
+  address span {
+    display: block;
+  }
+
+  .address-wrapper {
+    margin-block-end: var(--spacing-1);
+  }
+
+  .contact-item {
+    line-height: 2.5;
+  }
+</style>
