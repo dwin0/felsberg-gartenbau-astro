@@ -1,4 +1,6 @@
 ---
+import Footer from "../components/Footer.astro";
+
 interface Props {
   title: string;
 }
@@ -38,16 +40,16 @@ const { title } = Astro.props;
       </nav>
     </header>
     <slot />
+    <Footer />
   </body>
 </html>
 <style is:global>
   :root {
-    --color-green: "#245d24";
+    --color-green-main: #245d24;
+    --color-white-main: #ffffff;
 
-    @custom-media --breakpoint-max-sm (max-width: 350px);
-    @custom-media --breakpoint-min-md (min-width: 351px);
-    @custom-media --breakpoint-max-md (max-width: 700px);
-    @custom-media --breakpoint-min-lg (min-width: 1200px);
+    --spacing-05: 0.5rem;
+    --spacing-3: 3rem;
   }
 
   html {
@@ -78,7 +80,8 @@ const { title } = Astro.props;
   }
 
   p,
-  ul {
+  ul,
+  li {
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.2;
@@ -91,5 +94,13 @@ const { title } = Astro.props;
 
   li {
     margin-bottom: 0.5em;
+  }
+
+  footer {
+    font-size: 1rem;
+
+    @media (--breakpoint-min-md) {
+      font-size: 1.125rem;
+    }
   }
 </style>

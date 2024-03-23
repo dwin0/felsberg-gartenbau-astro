@@ -1,3 +1,13 @@
+const postcssGlobalData = require("@csstools/postcss-global-data");
+const postcssPresetEnv = require("postcss-preset-env");
+
 module.exports = {
-  plugins: [require("autoprefixer"), require("postcss-custom-media")],
+  plugins: [
+    postcssGlobalData({
+      files: ["./src/styles/media-queries.css"],
+    }),
+    postcssPresetEnv({
+      features: {},
+    }),
+  ],
 };

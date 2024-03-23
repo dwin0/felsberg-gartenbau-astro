@@ -74,3 +74,8 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+/* Custom */
+address {
+  font-style: normal;
+}
