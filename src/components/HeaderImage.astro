@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 interface Props {
@@ -11,12 +11,14 @@ interface Props {
 const { image, alt, objectPosition = "50% 50%" } = Astro.props;
 ---
 
-<Picture
+<Image
   src={image}
   alt={alt}
   sizes="100vw"
   height={580}
-  widths={[750, 1080, 1366, 1920] /* eslint-disable-line no-magic-numbers */}
+  widths={[
+    500, 750, 1000, 1300, 1920,
+  ] /* eslint-disable-line no-magic-numbers */}
   loading="eager"
   style={`--header-image-object-position: ${objectPosition}`}
 />

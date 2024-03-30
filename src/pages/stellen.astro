@@ -8,37 +8,36 @@ import { email, mobileNumberIntl, mobileNumber } from "../data/contact";
 
 <Layout title="Offene Stellen">
   <HeaderImage
+    slot="header-image"
     image={imgSrc}
     alt="Garten mit Blumen und Rasen"
     objectPosition="50% 43%"
   />
-  <main>
-    <h1>Offene Stellen</h1>
+  <h1>Offene Stellen</h1>
 
-    <h2>Wir suchen Landschaftsgärtner/in EFZ</h2>
-    <p>Per sofort oder nach Vereinbarung</p>
-    <p>
-      Zur Unterstützung unseres kleinen Teams für Umänderungen und Unterhalt in
-      Kundengärten.
-    </p>
-    <ul>
-      <li>Du bist selbstständiges und fachgerechtes Arbeiten gewöhnt</li>
-      <li>Du hast ein kundenfreundliches Auftreten</li>
-      <li>Du bist zuverlässig und pünktlich</li>
-      <li>Du besitzt den Führerausweis Kat. B, evtl. Anhängerprüfung</li>
-    </ul>
-    <p>Dann bist du genau richtig bei uns. Wir bieten</p>
-    <ul>
-      <li>Zeitgemässe Anstellungsbedingungen</li>
-      <li>Gutes kollegiales Arbeitsklima</li>
-      <li>Möglichkeiten für Weiterbildung</li>
-    </ul>
-    <p>
-      Melde dich bei Marco Felsberg unter der Telefonnummer
-      <a href={`tel:${mobileNumberIntl}`}>{mobileNumber}</a>
-      oder via Email
-      <a href={`mailto:${email}`}>{email}</a>
-      mit deinen vollständigen Bewerbungsunterlagen. Wir freuen uns auf dich.
-    </p>
-  </main>
+  <h2>Wir suchen Landschaftsgärtner/in EFZ</h2>
+  <p>Per sofort oder nach Vereinbarung</p>
+  <p>
+    Zur Unterstützung unseres kleinen Teams für Umänderungen und Unterhalt in
+    Kundengärten.
+  </p>
+  <ul>
+    <li>Du bist selbstständiges und fachgerechtes Arbeiten gewöhnt</li>
+    <li>Du hast ein kundenfreundliches Auftreten</li>
+    <li>Du bist zuverlässig und pünktlich</li>
+    <li>Du besitzt den Führerausweis Kat. B, evtl. Anhängerprüfung</li>
+  </ul>
+  <p>Dann bist du genau richtig bei uns. Wir bieten</p>
+  <ul>
+    <li>Zeitgemässe Anstellungsbedingungen</li>
+    <li>Gutes kollegiales Arbeitsklima</li>
+    <li>Möglichkeiten für Weiterbildung</li>
+  </ul>
+  <p>
+    Melde dich bei Marco Felsberg unter der Telefonnummer
+    <a href={`tel:${mobileNumberIntl}`}>{mobileNumber}</a>
+    oder via Email
+    <a href={`mailto:${email}`}>{email}</a>
+    mit deinen vollständigen Bewerbungsunterlagen. Wir freuen uns auf dich.
+  </p>
 </Layout>

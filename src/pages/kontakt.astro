@@ -17,38 +17,37 @@ import {
 
 <Layout title="Kontakt">
   <HeaderImage
+    slot="header-image"
     image={imgSrc}
     alt="Zwei Lastwagen und ein Anhänger auf denen das Firmenlogo von Gartenbau Felsberg abgedruckt sind"
   />
-  <main>
-    <h1>Kontakt</h1>
+  <h1>Kontakt</h1>
 
-    <h2>Adresse</h2>
+  <h2>Adresse</h2>
 
-    <address>
-      <span class="address-wrapper">
-        <span>{name}</span>
-        <span>{street}</span>
-        <span>{zipCode} {city}</span>
-      </span>
+  <address>
+    <span class="address-wrapper">
+      <span>{name}</span>
+      <span>{street}</span>
+      <span>{zipCode} {city}</span>
+    </span>
 
-      <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
-        Google Maps Link
-      </a>
-    </address>
+    <a href={googleMapsLink} target="_blank" rel="noopener noreferrer">
+      Google Maps Link
+    </a>
+  </address>
 
-    <h2>Kontaktmöglichkeiten</h2>
-    <ul>
-      <li class="contact-item">
-        Telefon: <a href={`tel:${phoneNumberIntl}`}>{phoneNumber}</a>
-      </li>
-      <li class="contact-item">
-        Email: <a href={`mailto:${email}`}>{email}</a>
-      </li>
-    </ul>
+  <h2>Kontaktmöglichkeiten</h2>
+  <ul>
+    <li class="contact-item">
+      Telefon: <a href={`tel:${phoneNumberIntl}`}>{phoneNumber}</a>
+    </li>
+    <li class="contact-item">
+      Email: <a href={`mailto:${email}`}>{email}</a>
+    </li>
+  </ul>
 
-    <h2>Kontaktformular</h2>
-  </main>
+  <h2>Kontaktformular</h2>
 </Layout>
 
 <style>

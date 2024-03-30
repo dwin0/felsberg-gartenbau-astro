@@ -57,7 +57,12 @@ const fullTitle = title ? `${title} - ${name}` : name;
         </ul>
       </nav>
     </header>
-    <slot />
+    <main>
+      <slot name="header-image" />
+      <div class="text-wrapper">
+        <slot />
+      </div>
+    </main>
     <Footer />
   </body>
 </html>
@@ -71,21 +76,25 @@ const fullTitle = title ? `${title} - ${name}` : name;
     --spacing-1: 1rem;
     --spacing-2: 2rem;
     --spacing-3: 3rem;
+    --spacing-5: 5rem;
     --spacing-6: 6rem;
+    --spacing-7: 7rem;
+    --spacing-8: 8rem;
   }
 
   html {
     font-family: Tahoma, sans-serif;
+    text-underline-offset: 4px;
   }
 
-  main {
+  .text-wrapper {
     margin: auto;
-    padding: var(--spacing-3) var(--spacing-1);
+    padding: var(--spacing-3) var(--spacing-1) var(--spacing-6);
     width: 800px;
     max-width: calc(100% - var(--spacing-2));
 
     @media (--breakpoint-min-md) {
-      padding-block: var(--spacing-6);
+      padding-block: var(--spacing-6) var(--spacing-8);
     }
   }
 
@@ -147,7 +156,8 @@ const fullTitle = title ? `${title} - ${name}` : name;
   p,
   ul,
   li,
-  address {
+  main address,
+  main a {
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.4;

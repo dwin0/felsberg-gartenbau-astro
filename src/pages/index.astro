@@ -1,29 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeaderImage from "../components/HeaderImage.astro";
-import imgSrc from "../images/grillstelle-min.jpg";
+import Topic from "../components/Topic.astro";
+
+import imgSrcHeader from "../images/grillstelle-min.jpg";
+import imgSrcGartenbau from "../images/biotop-min.jpg";
+import imgSrcGartenunterhalt from "../images/staudenrabatte-min.jpg";
+import imgSrcGrabpflege from "../images/graeber-min.jpg";
 ---
 
 <Layout>
   <HeaderImage
-    image={imgSrc}
+    slot="header-image"
+    image={imgSrcHeader}
     alt="Garten mit Grillstelle"
     objectPosition="50% 80%"
   />
-  <main>
-    <h1>Gartenbau Felsberg</h1>
-    <p>
-      Herzlich willkommen auf der Homepage der Gartenbau Felsberg GmbH in
-      Neuwilen.
-    </p>
-    <p>
-      Wir führen allgemeine Arbeiten im Gartenbau aus und kümmern uns um die
-      Grabpflege. Verschönernd erstellen wir Ihnen Ihre Garten-Neuanlage oder
-      gestalten Ihren Garten mit Einbau eines Biotops oder Neubepflanzungen um.
-    </p>
-    <p>
-      Unser Einzugsgebiet erstreckt sich über den Kanton Thurgau mit Fokus auf
-      die Region Kreuzlingen.
-    </p>
-  </main>
+  <h1>Gartenbau Felsberg</h1>
+  <p>
+    Herzlich willkommen auf der Homepage der Gartenbau Felsberg GmbH in
+    Neuwilen.
+  </p>
+  <p>
+    Wir führen allgemeine Arbeiten im Gartenbau aus und kümmern uns um die
+    Grabpflege. Verschönernd erstellen wir Ihnen Ihre Garten-Neuanlage oder
+    gestalten Ihren Garten mit Einbau eines Biotops oder Neubepflanzungen um.
+  </p>
+  <p>
+    Unser Einzugsgebiet erstreckt sich über den Kanton Thurgau mit Fokus auf die
+    Region Kreuzlingen.
+  </p>
+
+  <Topic
+    name="Gartenbau"
+    description="Braucht Ihr Garten eine Auffrischung oder Veränderung? Bei Planung und Umsetzung von Ihrem neuen Garten sind wir gerne für Sie da."
+    href="/gartenbau"
+    image={imgSrcGartenbau}
+  />
+
+  <Topic
+    name="Gartenunterhalt"
+    description="Wollen Sie Ihren Garten professionell gepflegt haben? Wir sind die Lösung. Unsere Leistungen umfassen unter anderem Rasen mähen, Rabatten pflegen oder Bäume schneiden. Damit können Sie Ihren Garten sorgenfrei geniessen."
+    href="/gartenunterhalt"
+    image={imgSrcGartenunterhalt}
+  />
+
+  <Topic
+    name="Grabpflege"
+    description="Wir führen Grabpflegearbeiten durch, indem wir die Gräber in regelmässigen Abständen neu bepflanzen und gestalten. Dabei gehen wir auf Ihre individuellen Wünsche ein."
+    href="/grabpflege"
+    image={imgSrcGrabpflege}
+  />
 </Layout>

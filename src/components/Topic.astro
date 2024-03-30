@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  name: string;
+  description: string;
+  href: string;
+  image: ImageMetadata;
+}
+
+const { name, description, href, image } = Astro.props;
+---
+
+<div class="topic-container">
+  <a href={href} class="image-link">
+    <Image
+      src={image}
+      alt={name}
+      widths={[250, 350, 500, 700] /* eslint-disable-line no-magic-numbers */}
+      sizes={`(max-width: 1200px) 250px, 350px`}
+    />
+  </a>
+
+  <div class="topic-text">
+    <h2>{name}</h2>
+    <p>{description}</p>
+    <a href={href}>Mehr über {name} erfahren</a>
+  </div>
+</div>
+
+<style>
+  .topic-container {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: var(--spacing-5);
+
+    @media (--breakpoint-min-md) {
+      flex-direction: row;
+      margin-block-start: var(--spacing-7);
+    }
+
+    @media (--breakpoint-min-lg) {
+      margin-inline: calc(var(--spacing-7) * -1);
+    }
+
+    &:nth-of-type(2n) .image-link {
+      @media (--breakpoint-min-md) {
+        order: 1;
+        margin-inline-start: var(--spacing-2);
+      }
+    }
+
+    &:nth-of-type(2n + 1) .image-link {
+      @media (--breakpoint-min-md) {
+        margin-inline-end: var(--spacing-2);
+      }
+    }
+  }
+
+  .topic-text {
+    @media (--breakpoint-min-md) {
+      margin: auto;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    margin-block: 0.75em 0.5em;
+
+    @media (--breakpoint-min-sm) {
+      margin-block: 0.5em;
+    }
+
+    @media (--breakpoint-min-md) {
+      text-align: left;
+      margin-block: 0 0.5em;
+    }
+  }
+
+  .image-link {
+    display: block;
+    margin: auto;
+    flex: 0 0 100%;
+
+    @media (--breakpoint-min-md) {
+      flex-basis: 250px;
+    }
+
+    @media (--breakpoint-min-lg) {
+      flex-basis: 350px;
+    }
+  }
+
+  img {
+    height: auto;
+    border-radius: 15%;
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    object-fit: cover;
+
+    @media (--breakpoint-min-lg) {
+      width: 350px;
+      height: 350px;
+    }
+  }
+</style>
