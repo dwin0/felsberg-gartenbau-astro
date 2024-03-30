@@ -1,7 +1,3 @@
----
-const pathname = new URL(Astro.request.url).pathname;
----
-
 <nav>
   <button
     class="hamburger"
@@ -14,40 +10,25 @@ const pathname = new URL(Astro.request.url).pathname;
   </button>
   <ul class="nav-links">
     <li>
-      <a href="/" class={pathname === "/" ? "active" : ""}>Startseite</a>
+      <a href="/">Startseite</a>
     </li>
     <li>
-      <a href="/gartenbau" class={pathname === "/gartenbau" ? "active" : ""}>
-        Gartenbau
-      </a>
+      <a href="/gartenbau">Gartenbau</a>
     </li>
     <li>
-      <a
-        href="/gartenunterhalt"
-        class={pathname === "/gartenunterhalt" ? "active" : ""}
-      >
-        Gartenunterhalt
-      </a>
+      <a href="/gartenunterhalt">Gartenunterhalt</a>
     </li>
     <li>
-      <a href="/grabpflege" class={pathname === "/grabpflege" ? "active" : ""}>
-        Grabpflege
-      </a>
+      <a href="/grabpflege">Grabpflege</a>
     </li>
     <li>
-      <a href="/ueber-uns" class={pathname === "/ueber-uns" ? "active" : ""}>
-        Über uns
-      </a>
+      <a href="/ueber-uns">Über uns</a>
     </li>
     <li>
-      <a href="/stellen" class={pathname === "/stellen" ? "active" : ""}
-        >Offene Stellen</a
-      >
+      <a href="/stellen">Offene Stellen</a>
     </li>
     <li>
-      <a href="/kontakt" class={pathname === "/kontakt" ? "active" : ""}>
-        Kontakt
-      </a>
+      <a href="/kontakt">Kontakt</a>
     </li>
     <li class="close-menu-li">
       <button class="close-menu">Navigationsmenu schliessen</button>
@@ -166,6 +147,7 @@ const pathname = new URL(Astro.request.url).pathname;
 </style>
 
 <script>
+  /* open close menu */
   function openMenu(hamburger: HTMLButtonElement) {
     hamburger.setAttribute("aria-label", "Schliesse Navigationsmenu");
     hamburger.setAttribute("aria-expanded", "true");
@@ -192,5 +174,25 @@ const pathname = new URL(Astro.request.url).pathname;
 
   closeMenuButton.addEventListener("click", () => {
     closeMenu(hamburgerButton);
+  });
+
+  /* display active item */
+  // https://www.cyishere.dev/blog/astro-active-nav-item
+  const navLinks = document.querySelectorAll(
+    ".nav-links a"
+  ) as NodeListOf<HTMLAnchorElement>;
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+
+    // pathname example '/gartenunterhalt'. Slice to remove the first `/` in pathname
+    const currentPath = window.location.pathname.slice(1);
+
+    // `link.href` returns a whole url, such as: "https://www.felsberg-gartenbau.ch/gartenbau" and we only need the last part
+    const linkPath = link.href.split("/").at(-1);
+
+    if (currentPath === linkPath) {
+      link.classList.add("active");
+    }
   });
 </script>
