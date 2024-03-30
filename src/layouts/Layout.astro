@@ -2,6 +2,7 @@
 import "../styles/reset.css";
 import Footer from "../components/Footer.astro";
 import { name } from "../data/contact";
+import Navigation from "../components/Navigation.astro";
 
 interface Props {
   title?: string;
@@ -31,31 +32,8 @@ const fullTitle = title ? `${title} - ${name}` : name;
   </head>
   <body>
     <header>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/gartenbau">Gartenbau</a>
-          </li>
-          <li>
-            <a href="/gartenunterhalt">Gartenunterhalt</a>
-          </li>
-          <li>
-            <a href="/grabpflege">Grabpflege</a>
-          </li>
-          <li>
-            <a href="/ueber-uns">Über uns</a>
-          </li>
-          <li>
-            <a href="/stellen">Offene Stellen</a>
-          </li>
-          <li>
-            <a href="/kontakt">Kontakt</a>
-          </li>
-        </ul>
-      </nav>
+      <a href="/" class="logo-link">Gartenbau Felsberg GmbH</a>
+      <Navigation />
     </header>
     <main>
       <slot name="header-image" />
@@ -71,15 +49,19 @@ const fullTitle = title ? `${title} - ${name}` : name;
     --color-green-main: #245d24;
     --color-white-main: #ffffff;
     --color-yellow-main: #ffe900;
+    --color-black-main: #252525;
 
-    --spacing-05: 0.5rem;
+    --spacing-0_5: 0.5rem;
     --spacing-1: 1rem;
+    --spacing-1_5: 1.5rem;
     --spacing-2: 2rem;
     --spacing-3: 3rem;
     --spacing-5: 5rem;
     --spacing-6: 6rem;
     --spacing-7: 7rem;
     --spacing-8: 8rem;
+
+    --header-height: 3.75rem;
   }
 
   html {
@@ -168,6 +150,29 @@ const fullTitle = title ? `${title} - ${name}` : name;
     }
   }
 
+  header {
+    a {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.4;
+
+      @media (--breakpoint-min-md) {
+        font-size: 1.25rem;
+      }
+    }
+
+    nav a,
+    nav button {
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.4;
+
+      @media (--breakpoint-min-md) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
   li {
     margin: 0;
     line-height: 1.5;
@@ -184,5 +189,35 @@ const fullTitle = title ? `${title} - ${name}` : name;
     @media (--breakpoint-min-md) {
       font-size: 1.125rem;
     }
+  }
+
+  button {
+    cursor: pointer;
+  }
+</style>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white-main);
+  }
+
+  main {
+    margin-block-start: var(--header-height);
+  }
+
+  .logo-link {
+    color: var(--color-green-main);
+    text-decoration: none;
+    padding: var(--spacing-1) var(--spacing-0_5);
+    text-align: center;
   }
 </style>
