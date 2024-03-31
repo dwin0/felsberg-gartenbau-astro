@@ -2,7 +2,7 @@
 import "../styles/reset.css";
 import Footer from "../components/Footer.astro";
 import { name } from "../data/contact";
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
 
 interface Props {
   title?: string;
@@ -31,10 +31,7 @@ const fullTitle = title ? `${title} - ${name}` : name;
     <title>{fullTitle}</title>
   </head>
   <body>
-    <header>
-      <a href="/" class="logo-link">Gartenbau Felsberg GmbH</a>
-      <Navigation />
-    </header>
+    <Header />
     <main>
       <slot name="header-image" />
       <div class="text-wrapper">
@@ -62,11 +59,23 @@ const fullTitle = title ? `${title} - ${name}` : name;
     --spacing-8: 8rem;
 
     --header-height: 3.75rem;
+
+    @media (--breakpoint-min-lg) {
+      --header-height: 7.5rem;
+    }
   }
 
   html {
     font-family: Tahoma, sans-serif;
     text-underline-offset: 4px;
+  }
+
+  main {
+    margin-block-start: var(--header-height);
+
+    * {
+      scroll-margin-top: var(--header-height);
+    }
   }
 
   .text-wrapper {
@@ -193,31 +202,5 @@ const fullTitle = title ? `${title} - ${name}` : name;
 
   button {
     cursor: pointer;
-  }
-</style>
-
-<style>
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
-    height: var(--header-height);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--color-white-main);
-  }
-
-  main {
-    margin-block-start: var(--header-height);
-  }
-
-  .logo-link {
-    color: var(--color-green-main);
-    text-decoration: none;
-    padding: var(--spacing-1) var(--spacing-0_5);
-    text-align: center;
   }
 </style>

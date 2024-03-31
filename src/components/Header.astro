@@ -1,0 +1,301 @@
+<header>
+  <div class="header-row-1">
+    <a href="#main" class="skip-link">Direkt zum Seiteninhalt</a>
+    <a href="/" class="logo-link">Gartenbau Felsberg GmbH</a>
+
+    <button
+      class="hamburger"
+      aria-expanded="false"
+      aria-label="Navigationsmenu öffnen"
+    >
+      <span aria-hidden="true" class="line line-one"></span>
+      <span aria-hidden="true" class="line line-two"></span>
+      <span aria-hidden="true" class="line line-three"></span>
+    </button>
+  </div>
+
+  <nav class="header-row-2">
+    <ul class="nav-links">
+      <li>
+        <a href="/">Startseite</a>
+      </li>
+      <li>
+        <a href="/gartenbau">Gartenbau</a>
+      </li>
+      <li>
+        <a href="/gartenunterhalt">Gartenunterhalt</a>
+      </li>
+      <li>
+        <a href="/grabpflege">Grabpflege</a>
+      </li>
+      <li>
+        <a href="/ueber-uns">Über uns</a>
+      </li>
+      <li>
+        <a href="/stellen">Offene Stellen</a>
+      </li>
+      <li>
+        <a href="/kontakt">Kontakt</a>
+      </li>
+      <li class="close-menu-li" aria-hidden="true">
+        <button class="close-menu">Navigationsmenu schliessen</button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    box-shadow: 0 3px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:focus-visible {
+      position: static;
+      width: auto;
+      height: auto;
+      clip: auto;
+      overflow: auto;
+    }
+  }
+
+  .header-row-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: var(--spacing-0_5);
+    background-color: var(--color-white-main);
+  }
+
+  .logo-link {
+    color: var(--color-green-main);
+    text-decoration: none;
+    padding-block: var(--spacing-1);
+    text-align: center;
+
+    @media (--breakpoint-min-lg) {
+      padding-inline: var(--spacing-1_5);
+    }
+  }
+
+  .hamburger {
+    box-sizing: content-box;
+    width: 40px;
+    min-width: 40px;
+    padding: var(--spacing-0_5) var(--spacing-1);
+    border: none;
+    background: none;
+
+    @media (--breakpoint-min-lg) {
+      display: none;
+    }
+  }
+
+  .hamburger {
+    .line {
+      display: block;
+      height: 4px;
+      border-radius: 4px;
+      margin: 4px 0;
+      background-color: var(--color-black-main);
+      transform: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &[aria-expanded="true"] {
+      .line-one {
+        transform: translateY(6px) rotate(45deg);
+      }
+      .line-two {
+        transform: scaleX(0);
+      }
+      .line-three {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+    }
+  }
+
+  .header-row-2 {
+    height: calc(100vh - var(--header-height));
+    width: 100%;
+    overflow: auto;
+    padding-block: var(--spacing-1);
+    border-block-start: 1px solid var(--color-black-main);
+    background: var(--color-white-main);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+
+    @media (--breakpoint-min-lg) {
+      position: static;
+      height: auto;
+      width: auto;
+      border: none;
+      transform: none;
+      padding-block: 0;
+    }
+  }
+
+  .header-row-2[menu-open="true"] {
+    transform: translateX(0);
+  }
+
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (--breakpoint-min-lg) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+
+    @media (--breakpoint-min-lg) {
+      width: auto;
+    }
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    display: block;
+    color: var(--color-black-main);
+    text-decoration-color: transparent;
+    padding-block: var(--spacing-1_5);
+    transition-property: color text-decoration;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+
+    @media (--breakpoint-min-lg) {
+      padding: var(--spacing-1) var(--spacing-1_5);
+      display: inline-block;
+    }
+
+    &:not(.active):hover {
+      @media (--breakpoint-min-lg) {
+        text-decoration: underline;
+        color: var(--color-green-main);
+      }
+    }
+  }
+
+  .nav-links .active {
+    color: var(--color-white-main);
+    background: var(--color-green-main);
+  }
+
+  .close-menu-li {
+    border-block-start: 1px solid var(--color-black-main);
+    margin-block: var(--spacing-1);
+    width: auto !important;
+
+    @media (--breakpoint-min-lg) {
+      display: none;
+    }
+  }
+
+  .close-menu {
+    border: none;
+    background: none;
+    padding-block: var(--spacing-1_5);
+  }
+
+  .header-row-1,
+  .header-row-2 {
+    @media (--breakpoint-min-lg) {
+      padding-inline: var(--spacing-2);
+    }
+  }
+</style>
+
+<script>
+  /* open close menu */
+  function openMenu(
+    hamburger: HTMLButtonElement,
+    nav: HTMLElement,
+    closeMenuLi: HTMLLIElement
+  ) {
+    hamburger.setAttribute("aria-label", "Navigationsmenu schliessen");
+    hamburger.setAttribute("aria-expanded", "true");
+
+    nav.setAttribute("menu-open", "true");
+
+    closeMenuLi.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu(
+    hamburger: HTMLButtonElement,
+    nav: HTMLElement,
+    closeMenuLi: HTMLLIElement
+  ) {
+    hamburger.setAttribute("aria-label", "Navigationsmenu öffnen");
+    hamburger.setAttribute("aria-expanded", "false");
+
+    nav.setAttribute("menu-open", "false");
+
+    closeMenuLi.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "auto";
+  }
+
+  const hamburgerButton = document.querySelector(
+    ".hamburger"
+  ) as HTMLButtonElement;
+  const closeMenuButton = document.querySelector(
+    ".close-menu"
+  ) as HTMLButtonElement;
+  const closeMenuLi = closeMenuButton.closest("li") as HTMLLIElement;
+  const nav = document.querySelector(".header-row-2") as HTMLElement;
+
+  hamburgerButton.addEventListener("click", () => {
+    const wasOpen = hamburgerButton.getAttribute("aria-expanded") === "true";
+    wasOpen
+      ? closeMenu(hamburgerButton, nav, closeMenuLi)
+      : openMenu(hamburgerButton, nav, closeMenuLi);
+  });
+
+  closeMenuButton.addEventListener("click", () => {
+    closeMenu(hamburgerButton, nav, closeMenuLi);
+  });
+
+  /* display active item */
+  // https://www.cyishere.dev/blog/astro-active-nav-item
+  const navLinks = document.querySelectorAll(
+    ".nav-links a"
+  ) as NodeListOf<HTMLAnchorElement>;
+
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+
+    // pathname example '/gartenunterhalt'. Slice to remove the first `/` in pathname
+    const currentPath = window.location.pathname.slice(1);
+
+    // `link.href` returns a whole url, such as: "https://www.felsberg-gartenbau.ch/gartenbau" and we only need the last part
+    const linkPath = link.href.split("/").at(-1);
+
+    if (currentPath === linkPath) {
+      link.classList.add("active");
+    }
+  });
+</script>
