@@ -14,7 +14,7 @@ import logo from "../images/felsberg-icon.jpg";
         widths={[36, 72, 108] /* eslint-disable-line no-magic-numbers */}
         loading="eager"
       />
-      Gartenbau Felsberg GmbH
+      Gartenbau Felsberg<span class="logo-link-gmbh">&nbsp;GmbH</span>
     </a>
 
     <button
@@ -104,6 +104,18 @@ import logo from "../images/felsberg-icon.jpg";
 
     @media (--breakpoint-min-lg) {
       padding-inline: var(--spacing-1_5);
+    }
+  }
+
+  .logo-link-gmbh {
+    @media (width < 450px) {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      clip: rect(0 0 0 0);
+      overflow: hidden;
+      white-space: nowrap;
     }
   }
 
