@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.9",
     "astro": "^4.5.8",
+    "astro-webmanifest": "^1.0.0",
     "typescript": "^5.4.3"
   },
   "devDependencies": {
