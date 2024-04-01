@@ -51,7 +51,7 @@ import logo from "../images/felsberg-icon.jpg";
       <li>
         <a href="/kontakt">Kontakt</a>
       </li>
-      <li class="close-menu-li" aria-hidden="true">
+      <li class="close-menu-li">
         <button class="close-menu">Navigationsmenu schliessen</button>
       </li>
     </ul>
@@ -258,32 +258,20 @@ import logo from "../images/felsberg-icon.jpg";
 
 <script>
   /* open close menu */
-  function openMenu(
-    hamburger: HTMLButtonElement,
-    nav: HTMLElement,
-    closeMenuLi: HTMLLIElement
-  ) {
+  function openMenu(hamburger: HTMLButtonElement, nav: HTMLElement) {
     hamburger.setAttribute("aria-label", "Navigationsmenu schliessen");
     hamburger.setAttribute("aria-expanded", "true");
 
     nav.setAttribute("menu-open", "true");
 
-    closeMenuLi.setAttribute("aria-hidden", "false");
-
     document.body.style.overflow = "hidden";
   }
 
-  function closeMenu(
-    hamburger: HTMLButtonElement,
-    nav: HTMLElement,
-    closeMenuLi: HTMLLIElement
-  ) {
+  function closeMenu(hamburger: HTMLButtonElement, nav: HTMLElement) {
     hamburger.setAttribute("aria-label", "Navigationsmenu öffnen");
     hamburger.setAttribute("aria-expanded", "false");
 
     nav.setAttribute("menu-open", "false");
-
-    closeMenuLi.setAttribute("aria-hidden", "true");
 
     document.body.style.overflow = "auto";
   }
@@ -294,18 +282,15 @@ import logo from "../images/felsberg-icon.jpg";
   const closeMenuButton = document.querySelector(
     ".close-menu"
   ) as HTMLButtonElement;
-  const closeMenuLi = closeMenuButton.closest("li") as HTMLLIElement;
   const nav = document.querySelector(".header-row-2") as HTMLElement;
 
   hamburgerButton.addEventListener("click", () => {
     const wasOpen = hamburgerButton.getAttribute("aria-expanded") === "true";
-    wasOpen
-      ? closeMenu(hamburgerButton, nav, closeMenuLi)
-      : openMenu(hamburgerButton, nav, closeMenuLi);
+    wasOpen ? closeMenu(hamburgerButton, nav) : openMenu(hamburgerButton, nav);
   });
 
   closeMenuButton.addEventListener("click", () => {
-    closeMenu(hamburgerButton, nav, closeMenuLi);
+    closeMenu(hamburgerButton, nav);
   });
 
   /* display active item */
