@@ -14,6 +14,7 @@
     "@astrojs/check": "^0.5.9",
     "astro": "^4.5.8",
     "astro-webmanifest": "^1.0.0",
+    "posthog-js": "^1.128.1",
     "typescript": "^5.4.3"
   },
   "devDependencies": {
@@ -22,6 +23,8 @@
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^0.32.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "postcss-preset-env": "^9.5.2"
+    "postcss-preset-env": "^9.5.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0"
   }
 }

@@ -3,6 +3,8 @@ import "../styles/reset.css";
 import Footer from "../components/Footer.astro";
 import { name } from "../data/contact";
 import Header from "../components/Header.astro";
+import PostHog from "../components/posthog.astro";
+import CookieBanner from "../components/CookieBanner.astro";
 
 interface Props {
   title?: string;
@@ -28,9 +30,11 @@ const fullTitle = title ? `${title} - ${name}` : name;
     <meta name="viewport" content="width=device-width" />
     <meta name="canonical" content="https://www.felsberg-gartenbau.ch/" />
     <title>{fullTitle}</title>
+    <PostHog />
   </head>
   <body>
     <Header />
+    <CookieBanner />
     <main>
       <slot name="header-image" />
       <div class="text-wrapper">
@@ -40,6 +44,7 @@ const fullTitle = title ? `${title} - ${name}` : name;
     <Footer />
   </body>
 </html>
+
 <style is:global>
   :root {
     --color-green-main: #245d24;
@@ -147,7 +152,8 @@ const fullTitle = title ? `${title} - ${name}` : name;
   ul,
   li,
   main address,
-  main a {
+  main a,
+  .cookie-banner button {
     font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.4;
@@ -201,5 +207,25 @@ const fullTitle = title ? `${title} - ${name}` : name;
 
   button {
     cursor: pointer;
+  }
+
+  .cookie-banner {
+    h2 {
+      @media (--breakpoint-max-sm) {
+        font-size: 1.2rem;
+      }
+    }
+
+    p {
+      @media (--breakpoint-max-sm) {
+        font-size: .8rem;
+      }
+    }
+
+    button {
+      @media (--breakpoint-max-sm) {
+        font-size: .8rem;
+      }
+    }
   }
 </style>

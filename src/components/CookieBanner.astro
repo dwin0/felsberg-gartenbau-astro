@@ -1,0 +1,124 @@
+<region class="cookie-banner" id="cookie-banner">
+  <h2>Cookies verwalten</h2>
+  <button class="close" aria-label="Ablehnen und Schliessen">x</button>
+  <p>
+    Wir verwenden Cookies, um die Nutzerfreundlichkeit unserer Seite zu
+    analysieren und zu optimieren. Weitere Informationen erhalten Sie in unserer <a
+      href="/datenschutz">Datenschutzerklärung</a
+    >.
+  </p>
+  <div class="button-wrapper">
+    <button class="accept">Einverstanden</button>
+    <button class="deny">Ablehnen</button>
+  </div>
+</region>
+
+<style>
+  .cookie-banner {
+    display: none;
+    position: fixed;
+    max-width: 550px;
+    z-index: 100;
+    bottom: 0;
+    right: 0;
+    background: var(--color-white-main);
+    border: 8px solid var(--color-green-main);
+    border-radius: 20px;
+    margin: var(--spacing-1);
+    padding: var(--spacing-1) var(--spacing-1_5);
+    overflow: hidden;
+  }
+
+  h2 {
+    margin-block: 0 var(--spacing-1);
+
+    @media (--breakpoint-min-md) {
+      margin-block: var(--spacing-1);
+    }
+  }
+
+  .cookie-banner button {
+    margin: 0;
+  }
+
+  button:hover {
+    background: var(--color-green-main);
+    color: var(--color-white-main);
+  }
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: var(--spacing-0_5) var(--spacing-1);
+    border: none;
+    border-bottom-left-radius: 12px;
+
+    @media (--breakpoint-min-md) {
+      padding: var(--spacing-1) var(--spacing-1_5);
+    }
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--spacing-0_5);
+    margin-top: var(--spacing-1);
+
+    @media (--breakpoint-min-md) {
+      margin-top: var(--spacing-2);
+      gap: var(--spacing-1);
+    }
+  }
+
+  .accept,
+  .deny {
+    padding: var(--spacing-0_5);
+    background: var(--color-white-main);
+    border: 2px solid var(--color-green-main);
+    width: 100%;
+
+    @media (--breakpoint-min-md) {
+      width: auto;
+    }
+  }
+</style>
+
+<script>
+  import posthog from "posthog-js";
+
+  if (posthog.has_opted_in_capturing() || posthog.has_opted_out_capturing()) {
+    // do nothing
+  } else {
+    const banner = document.querySelector(".cookie-banner") as HTMLElement;
+    banner.style.display = "block";
+
+    const closeCookieBanner = () => {
+      banner.remove();
+    };
+
+    const closeButton = document.querySelector(
+      "button.close"
+    ) as HTMLButtonElement;
+    const acceptButton = document.querySelector(
+      "button.accept"
+    ) as HTMLButtonElement;
+    const denyButton = document.querySelector(
+      "button.deny"
+    ) as HTMLButtonElement;
+
+    closeButton.addEventListener("click", () => {
+      posthog.opt_out_capturing();
+      closeCookieBanner();
+    });
+    acceptButton.addEventListener("click", () => {
+      posthog.opt_in_capturing();
+      closeCookieBanner();
+    });
+    denyButton.addEventListener("click", () => {
+      posthog.opt_out_capturing();
+      closeCookieBanner();
+    });
+  }
+</script>
