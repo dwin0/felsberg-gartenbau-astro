@@ -9,6 +9,7 @@ const formName = "kontaktFormular";
   name={formName}
   method="POST"
   action="/form-submit-success"
+  onsubmit="return window.validate_form()"
 >
   <div class="hidden">
     <label>
@@ -94,3 +95,18 @@ const formName = "kontaktFormular";
     color: var(--color-green-main);
   }
 </style>
+
+<script>
+  function validate_form() {
+    const recaptcha_box_checked = Boolean(window.grecaptcha.getResponse());
+
+    if (recaptcha_box_checked) {
+      return true;
+    } else {
+      alert("Bitte reCAPTCHA Checkbox aktivieren ('Ich bin kein Roboter')");
+      return false;
+    }
+  }
+
+  window.validate_form = validate_form;
+</script>
