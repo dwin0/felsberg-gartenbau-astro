@@ -1,0 +1,96 @@
+---
+const formName = "kontaktFormular";
+---
+
+<form
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  data-netlify-recaptcha="true"
+  name={formName}
+  method="POST"
+  action="/form-submit-success"
+>
+  <div class="hidden">
+    <label>
+      Folgendes Feld nicht ausfüllen: <input name="bot-field" />
+    </label>
+  </div>
+  <input type="hidden" name="form-name" value={formName} />
+
+  <div>
+    <label for="firstName">Vorname</label>
+    <input id="firstName" type="text" name="firstName" required />
+  </div>
+
+  <div>
+    <label for="lastName">Nachname</label>
+    <input id="lastName" type="text" name="lastName" required />
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input id="email" type="email" name="email" required />
+  </div>
+
+  <div>
+    <label for="phone">Telefonnummer</label>
+    <input id="phone" type="tel" name="phone" required />
+  </div>
+
+  <div>
+    <label for="subject">Betreff</label>
+    <input id="subject" type="text" name="subject" />
+  </div>
+
+  <div>
+    <label for="message">Mitteilung</label>
+    <textarea id="message" name="message" required rows="4"></textarea>
+  </div>
+
+  <div data-netlify-recaptcha="true"></div>
+
+  <button type="submit">Senden</button>
+</form>
+
+<style>
+  .hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  input,
+  textarea,
+  button {
+    border-radius: 5px;
+    margin: var(--spacing-0_5) 0 var(--spacing-1_5) 0;
+    padding: var(--spacing-1) var(--spacing-1);
+  }
+
+  input,
+  textarea {
+    border: 1px solid var(--color-form-input);
+    width: 100%;
+  }
+
+  div:focus-within label {
+    font-weight: bold;
+  }
+
+  button {
+    background: var(--color-green-main);
+    border: 2px solid var(--color-green-main);
+    color: var(--color-white-main);
+    width: 50%;
+    display: block;
+    margin: auto;
+  }
+  button:hover {
+    background: var(--color-white-main);
+    color: var(--color-green-main);
+  }
+</style>
