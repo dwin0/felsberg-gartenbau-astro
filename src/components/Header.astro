@@ -260,6 +260,8 @@ import logo from "../images/felsberg-icon.jpg";
     border: none;
     background: none;
     padding-block: var(--spacing-1_5);
+    margin-block-end: 100px; /* visibility on iPhone */
+    color: var(--color-black-main);
   }
 
   .header-row-1,
@@ -313,11 +315,17 @@ import logo from "../images/felsberg-icon.jpg";
     ".nav-links a"
   ) as NodeListOf<HTMLAnchorElement>;
 
+  const trimSlashes = (str: string) =>
+    str
+      .split("/")
+      .filter((v) => v !== "")
+      .join("/");
+
   navLinks.forEach((link) => {
     link.classList.remove("active");
 
     // pathname example '/gartenunterhalt'. Slice to remove the first `/` in pathname
-    const currentPath = window.location.pathname.slice(1);
+    const currentPath = trimSlashes(window.location.pathname);
 
     // `link.href` returns a whole url, such as: "https://www.felsberg-gartenbau.ch/gartenbau" and we only need the last part
     const linkPath = link.href.split("/").at(-1);
