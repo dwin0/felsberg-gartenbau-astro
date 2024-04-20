@@ -9,7 +9,7 @@ export default defineConfig({
     webmanifest({
       name: "Gartenbau Felsberg GmbH",
       short_name: "Gartenbau Felsberg",
-      icon: "src/images/felsberg-icon-round.png",
+      icon: "src/images/felsberg-icon.jpg",
       start_url: "/",
       theme_color: "#245d24",
       background_color: "#245d24",
