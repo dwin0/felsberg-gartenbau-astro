@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
 
 import webmanifest from "astro-webmanifest";
 
@@ -20,5 +21,6 @@ export default defineConfig({
         insertAppleTouchLinks: true,
       },
     }),
+    react(),
   ],
 });

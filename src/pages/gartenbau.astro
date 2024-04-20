@@ -1,13 +1,59 @@
 ---
+import getGalleryImages from "../utils/getGalleryImages";
 import Layout from "../layouts/Layout.astro";
 import HeaderImage from "../components/HeaderImage.astro";
-import imgSrc from "../images/biotop-min.jpg";
+import ImageGallery from "../components/ImageGallery";
+import headerImageSrc from "../images/biotop-min.jpg";
+
+import brunnen from "../images/brunnen-min.jpg";
+import neuanlage from "../images/neuanlage-min.jpg";
+import sichtschutzwand from "../images/sichtschutzwand-min.jpg";
+import sitzplatzMitWeg from "../images/sitzplatz_mit_porphyrplattenweg-min.jpg";
+import grillstelle from "../images/grillstelle-min.jpg";
+import sitzplatz from "../images/sitzplatz-min.jpg";
+import biotop1 from "../images/biotop-min.jpg";
+import biotop2 from "../images/biotop2-min.jpg";
+
+const galleryImages = await getGalleryImages([
+  {
+    src: brunnen,
+    alt: "Brunnen",
+  },
+  {
+    src: neuanlage,
+    alt: "Neuanlage",
+  },
+  {
+    src: sichtschutzwand,
+    alt: "Sichtschutzwand",
+  },
+  {
+    src: sitzplatzMitWeg,
+    alt: "Sitzplatz",
+  },
+  {
+    src: grillstelle,
+    alt: "Grillstelle",
+  },
+  {
+    src: sitzplatz,
+    alt: "Sitzplatz",
+  },
+  {
+    src: biotop1,
+    alt: "Biotop",
+  },
+  {
+    src: biotop2,
+    alt: "Biotop ",
+  },
+]);
 ---
 
 <Layout title="Gartenbau">
   <HeaderImage
     slot="header-image"
-    image={imgSrc}
+    image={headerImageSrc}
     alt="Teich, umrandet mit Steinen"
     objectPosition="50% 45%"
   />
@@ -27,4 +73,7 @@ import imgSrc from "../images/biotop-min.jpg";
     <li>Rasen</li>
     <li>Bepflanzungen</li>
   </ul>
+
+  <h2>Bildgalerie</h2>
+  <ImageGallery client:load images={galleryImages} />
 </Layout>
