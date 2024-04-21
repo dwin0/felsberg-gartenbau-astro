@@ -4,18 +4,12 @@ const formName = "kontaktFormular";
 
 <form
   data-netlify="true"
-  netlify-honeypot="bot-field"
   data-netlify-recaptcha="true"
   name={formName}
   method="POST"
   action="/form-submit-success"
   onsubmit="return window.validate_form()"
 >
-  <div class="hidden">
-    <label>
-      Folgendes Feld nicht ausfüllen: <input name="bot-field" />
-    </label>
-  </div>
   <input type="hidden" name="form-name" value={formName} />
 
   <div>
@@ -54,16 +48,6 @@ const formName = "kontaktFormular";
 </form>
 
 <style>
-  .hidden {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-
   input,
   textarea,
   button {
