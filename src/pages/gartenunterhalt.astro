@@ -5,8 +5,6 @@ import Layout from "../layouts/Layout.astro";
 import HeaderImage from "../components/HeaderImage.astro";
 import ImageGallery from "../components/ImageGallery";
 
-import headerImageSrc from "../images/staudenrabatte-min.jpg";
-
 import garten from "../images/garten-blumen-und-rasen-min.jpg";
 import blumenMitSchmetterling from "../images/blumen_mit_schmetterling-min.jpg";
 import staudenrabatte from "../images/staudenrabatte-min.jpg";
@@ -30,7 +28,7 @@ const galleryImages = await getGalleryImages([
 <Layout title="Gartenunterhalt">
   <HeaderImage
     slot="header-image"
-    image={headerImageSrc}
+    image={staudenrabatte}
     alt="Garten mit Staudenrabatte"
     objectPosition="50% 78%"
   />

@@ -17,8 +17,9 @@ const { image, alt, objectPosition = "50% 50%" } = Astro.props;
   sizes="100vw"
   height={580}
   widths={[
+    // eslint-disable-next-line no-magic-numbers
     500, 750, 1000, 1300, 1920,
-  ] /* eslint-disable-line no-magic-numbers */}
+  ]}
   loading="eager"
   style={`--header-image-object-position: ${objectPosition}`}
 />
