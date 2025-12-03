@@ -3,7 +3,6 @@ import getGalleryImages from "../utils/getGalleryImages";
 import Layout from "../layouts/Layout.astro";
 import HeaderImage from "../components/HeaderImage.astro";
 import ImageGallery from "../components/ImageGallery";
-import headerImageSrc from "../images/biotop-min.jpg";
 
 import brunnen from "../images/brunnen-min.jpg";
 import neuanlage from "../images/neuanlage-min.jpg";
@@ -53,7 +52,7 @@ const galleryImages = await getGalleryImages([
 <Layout title="Gartenbau">
   <HeaderImage
     slot="header-image"
-    image={headerImageSrc}
+    image={biotop1}
     alt="Teich, umrandet mit Steinen"
     objectPosition="50% 45%"
   />

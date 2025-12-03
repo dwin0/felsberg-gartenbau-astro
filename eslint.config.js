@@ -10,6 +10,8 @@ export default [
       "no-ternary": "off",
       "one-var": "off",
       "sort-imports": "off",
+      "sort-keys": "off",
+      "max-lines": "off",
     },
   },
 ];
