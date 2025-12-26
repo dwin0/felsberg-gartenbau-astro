@@ -290,16 +290,21 @@ import logo from "../images/felsberg-icon.jpg";
   }
 
   const hamburgerButton = document.querySelector(
-    ".hamburger"
+    ".hamburger",
   ) as HTMLButtonElement;
   const closeMenuButton = document.querySelector(
-    ".close-menu"
+    ".close-menu",
   ) as HTMLButtonElement;
   const nav = document.querySelector(".header-row-2") as HTMLElement;
 
   hamburgerButton.addEventListener("click", () => {
     const wasOpen = hamburgerButton.getAttribute("aria-expanded") === "true";
-    wasOpen ? closeMenu(hamburgerButton, nav) : openMenu(hamburgerButton, nav);
+
+    if (wasOpen) {
+      closeMenu(hamburgerButton, nav);
+    } else {
+      openMenu(hamburgerButton, nav);
+    }
   });
 
   closeMenuButton.addEventListener("click", () => {
@@ -309,13 +314,14 @@ import logo from "../images/felsberg-icon.jpg";
   /* display active item */
   // https://www.cyishere.dev/blog/astro-active-nav-item
   const navLinks = document.querySelectorAll(
-    ".nav-links a"
+    ".nav-links a",
+    // eslint-disable-next-line no-undef
   ) as NodeListOf<HTMLAnchorElement>;
 
   const trimSlashes = (str: string) =>
     str
       .split("/")
-      .filter((v) => v !== "")
+      .filter((value) => value !== "")
       .join("/");
 
   navLinks.forEach((link) => {
@@ -325,6 +331,7 @@ import logo from "../images/felsberg-icon.jpg";
     const currentPath = trimSlashes(window.location.pathname);
 
     // `link.href` returns a whole url, such as: "https://www.felsberg-gartenbau.ch/gartenbau" and we only need the last part
+    // eslint-disable-next-line no-magic-numbers
     const linkPath = link.href.split("/").at(-1);
 
     if (currentPath === linkPath) {
