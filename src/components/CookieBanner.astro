@@ -8,8 +8,8 @@
     >.
   </p>
   <div class="button-wrapper">
-    <button class="accept">Einverstanden</button>
     <button class="deny">Ablehnen</button>
+    <button class="accept">Einverstanden</button>
   </div>
 </region>
 
@@ -88,9 +88,7 @@
 <script>
   import posthog from "posthog-js";
 
-  if (posthog.has_opted_in_capturing() || posthog.has_opted_out_capturing()) {
-    // do nothing
-  } else {
+  if (posthog.get_explicit_consent_status() === "pending") {
     const banner = document.querySelector(".cookie-banner") as HTMLElement;
     banner.style.display = "block";
 
