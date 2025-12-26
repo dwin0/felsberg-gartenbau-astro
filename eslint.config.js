@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import eslintPluginAstro from "eslint-plugin-astro";
+import globals from "globals";
 
 export default [
   js.configs.all,
@@ -12,6 +13,13 @@ export default [
       "sort-imports": "off",
       "sort-keys": "off",
       "max-lines": "off",
+      "func-style": "off",
+      "capitalized-comments": "off",
+    },
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: { ...globals.browser, ...globals.node },
     },
   },
 ];

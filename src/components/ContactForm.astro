@@ -8,7 +8,7 @@ const formName = "kontaktFormular";
   name={formName}
   method="POST"
   action="/form-submit-success"
-  onsubmit="return window.validate_form()"
+  onsubmit="return window.validateForm()"
 >
   <div>
     <label for="firstName">Vorname</label>
@@ -79,16 +79,17 @@ const formName = "kontaktFormular";
 </style>
 
 <script>
-  function validate_form() {
-    const recaptcha_box_checked = Boolean(window.grecaptcha.getResponse());
+  function validateForm() {
+    const recaptchaBoxChecked = Boolean(window.grecaptcha.getResponse());
 
-    if (recaptcha_box_checked) {
+    if (recaptchaBoxChecked) {
       return true;
-    } else {
-      alert("Bitte reCAPTCHA Checkbox aktivieren ('Ich bin kein Roboter')");
-      return false;
     }
+
+    // eslint-disable-next-line no-alert
+    alert("Bitte reCAPTCHA Checkbox aktivieren ('Ich bin kein Roboter')");
+    return false;
   }
 
-  window.validate_form = validate_form;
+  window.validateForm = validateForm;
 </script>

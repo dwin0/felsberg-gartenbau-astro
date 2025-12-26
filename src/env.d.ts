@@ -1,7 +1,7 @@
 /// <reference types="astro/client" />
 
 interface Window {
-  validate_form: Function;
+  validateForm: Function;
   grecaptcha: {
     getResponse: () => Boolean;
   };
