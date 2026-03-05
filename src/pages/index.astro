@@ -51,4 +51,65 @@ import imgSrcGrabpflege from "../images/graeber-min.jpg";
     href="/grabpflege"
     image={imgSrcGrabpflege}
   />
+
+  <div class="job-posting-container">
+    <h2 class="job-posting-title">Offene Stellen</h2>
+    <p>Werde Teil unseres Teams als:</p>
+    <h3 class="job-title">Landschaftsgärtner/in EFZ (100%)</h3>
+
+    <p>
+      Wir suchen per 01.02.2026 oder nach Vereinbarung eine/n
+      Landschaftsgärtner/in EFZ.
+    </p>
+    <p>
+      Du verfügst über Berufserfahrung in der Gartenpflege, arbeitest
+      selbständig und zuverlässig und besitzt den Führerausweis Kat. B.
+    </p>
+    <p>
+      Wir bieten zeitgemässe Anstellungsbedingungen, ein kollegiales Team sowie
+      Weiterbildungmöglichkeiten. Wir freuen uns auf deine Bewerbung.
+    </p>
+    <p>
+      Link zur
+      <a
+        href="/pdfs/gartenbau-felsberg-stelleninserat-landschaftsgaertner.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Stellenbeschreibung [PDF]
+      </a>
+    </p>
+  </div>
 </Layout>
+
+<style>
+  .job-posting-container {
+    margin-block-start: var(--spacing-5);
+    padding: var(--spacing-1);
+    border-width: 3px 0 0 0;
+    border-style: solid;
+    border-color: var(--color-green-main);
+
+    @media (--breakpoint-min-md) {
+      margin-block-start: var(--spacing-8);
+      padding: var(--spacing-3);
+      border-width: 3px;
+      border-radius: 15px;
+    }
+  }
+
+  .job-posting-title,
+  .job-title {
+    word-break: break-word;
+  }
+
+  .job-posting-title {
+    margin-block: var(--spacing-1) var(--spacing-3);
+    text-align: center;
+  }
+
+  .job-title {
+    margin-block-start: var(--spacing-1_5);
+    font-weight: bold;
+  }
+</style>
