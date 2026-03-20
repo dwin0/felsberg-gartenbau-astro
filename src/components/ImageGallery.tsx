@@ -1,15 +1,13 @@
-import OriginalReactImageGallery, {
-  type ReactImageGalleryItem,
+import {
+  default as ReactImageGallery,
+  type GalleryItem as ReactImageGalleryItem,
 } from "react-image-gallery";
-import "react-image-gallery/styles/css/image-gallery.css";
+import "react-image-gallery/styles/image-gallery.css";
+
 import { useEffect, useMemo, useState } from "react";
 import type { GetImageResult } from "astro";
 
-const ReactImageGallery =
-  ((OriginalReactImageGallery as any)
-    .default as typeof OriginalReactImageGallery) ?? OriginalReactImageGallery;
-
-const translatedLabels: { [key: string]: string } = {
+const translatedLabels: Record<string, string> = {
   "Previous Slide": "Gehe zu vorherigem Bild",
   "Next Slide": "Gehe zu nächstem Bild",
   "Open Fullscreen": "Öffne Bild im Fullscreen Modus",
