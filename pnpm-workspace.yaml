@@ -1,4 +1,7 @@
 minimumReleaseAge: 4320 # 3 days
+overrides:
+  # compatible peer dependencies
+  "astro-webmanifest>sharp": 0.35.4
 allowBuilds:
   core-js: false
   esbuild: true
